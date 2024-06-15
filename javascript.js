@@ -17,7 +17,6 @@ function playRound()
 {
     humanChoice = prompt(`Hello We're playing rock paper scissors please enter either "rock" "paper" or "scissors`).toLocaleLowerCase()
     computerChoice = getComputerChoice()
-    console.log(humanChoice,computerChoice)
 
     if (humanChoice == computerChoice)
     {
@@ -51,5 +50,9 @@ function playRound()
         }
     }
 }
+for(let i = 0; i < 5; i++) // if i ever come back to this just know that the spec calls for a playgame function instead of this for loop
+{
+    playRound()
+}
 
-playRound()
+console.log(`Players score: ${playerScore}\nComputers score: ${computerScore} `)
