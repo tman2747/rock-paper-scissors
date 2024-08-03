@@ -7,6 +7,8 @@ let win = document.querySelector("#win")
 let loss = document.querySelector("#loss")
 let draw = document.querySelector("#draw")
 
+let container = document.querySelector(".box")
+
 let playerScore = 0
 let computerScore = 0
 let drawScore = 0
@@ -67,6 +69,11 @@ function playRound()
     loss.textContent = `Loss: ${computerScore}`
     draw.textContent = `Draw: ${drawScore}`
     console.log(`Players score: ${playerScore}\nComputers score: ${computerScore} `)
+    outcomeText = document.createElement("div")
+    outcomeText.textContent = "YOU WIN"
+    container.appendChild(outcomeText) // this appends a new child after every game. no really what im looking for. probably just need to append this once after a game
+    // and then edit the text conent after each win.
+
     // possibly add some more text to give feedback on what the computer choose with a red green or black/ grey color if its a win loss or tie
     // probably dont need to give feedback on what computer chose just do you won you lose you draw text.
 }
