@@ -68,6 +68,7 @@ function playRound()
     draw.textContent = `Draw: ${drawScore}`
     console.log(`Players score: ${playerScore}\nComputers score: ${computerScore} `)
     // possibly add some more text to give feedback on what the computer choose with a red green or black/ grey color if its a win loss or tie
+    // probably dont need to give feedback on what computer chose just do you won you lose you draw text.
 }
 
 play.addEventListener("click", () =>
