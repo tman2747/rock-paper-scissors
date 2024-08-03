@@ -50,9 +50,9 @@ function playRound()
         }
     }
 }
-for(let i = 0; i < 5; i++) // if i ever come back to this just know that the spec calls for a playgame function instead of this for loop
-{
-    playRound()
-}
+// for(let i = 0; i < 5; i++) // if i ever come back to this just know that the spec calls for a playgame function instead of this for loop
+// {
+//     playRound()
+// }
 
 console.log(`Players score: ${playerScore}\nComputers score: ${computerScore} `)
