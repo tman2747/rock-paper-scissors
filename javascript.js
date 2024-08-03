@@ -1,3 +1,15 @@
+let play = document.querySelector("#playButton")
+let rockButton = document.querySelector("#rock")
+let paperbutton = document.querySelector("#paper")
+let scissorsButton = document.querySelector("#scissors")
+
+let win = document.querySelector("#win")
+let loss = document.querySelector("#loss")
+let draw = document.querySelector("#draw")
+
+let playerScore = 0
+let computerScore = 0
+let drawScore = 0
 
 function getComputerChoice()
 {
@@ -10,17 +22,17 @@ function getComputerChoice()
         return "scissors"
 }
 
-playerScore = 0
-computerScore = 0
-
 function playRound()
 {
-    humanChoice = prompt(`Hello We're playing rock paper scissors please enter either "rock" "paper" or "scissors`).toLocaleLowerCase()
+
     computerChoice = getComputerChoice()
+
+    console.log(`Computer chose:${computerChoice}`)
 
     if (humanChoice == computerChoice)
     {
-        // do nothing
+        // add to draw
+        drawScore++;
     }
     else
     {
@@ -49,10 +61,33 @@ function playRound()
             playerScore++
         }
     }
+    // change win lose draw here probably
+    win.textContent = `Win: ${playerScore}`
+    loss.textContent = `Loss: ${computerScore}`
+    draw.textContent = `Draw: ${drawScore}`
+    console.log(`Players score: ${playerScore}\nComputers score: ${computerScore} `)
 }
-// for(let i = 0; i < 5; i++) // if i ever come back to this just know that the spec calls for a playgame function instead of this for loop
-// {
-//     playRound()
-// }
+
+play.addEventListener("click", ()=> {
+    console.log("Play Hit") // playRound() and unhide score / buttons
+    
+})
+
+rockButton.addEventListener("click", ()=> {
+    humanChoice = "rock"
+    playRound()
+
+})
+
+paperbutton.addEventListener("click", ()=> {
+    humanChoice = "paper"
+    playRound()
+
+})
+
+scissorsButton.addEventListener("click", ()=> {
+    humanChoice = "scissors"
+    playRound()
+})
 
 console.log(`Players score: ${playerScore}\nComputers score: ${computerScore} `)
