@@ -23,7 +23,7 @@ body{
 
 }
 
-.playButton{
+.playButtonContainer{
     justify-content: center;
     align-self: center;
 }
