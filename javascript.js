@@ -10,6 +10,7 @@ let draw = document.querySelector("#draw")
 let playerScore = 0
 let computerScore = 0
 let drawScore = 0
+let humanChoice = "whatever"
 
 function getComputerChoice()
 {
@@ -40,7 +41,7 @@ function playRound()
         {
             computerScore++
         }
-        if(humanChoice == "rock" && computerChoice == "scissors")
+        if (humanChoice == "rock" && computerChoice == "scissors")
         {
             playerScore++
         }
@@ -48,7 +49,7 @@ function playRound()
         {
             computerScore++
         }
-        if(humanChoice == "paper" && computerChoice == "rock")
+        if (humanChoice == "paper" && computerChoice == "rock")
         {
             playerScore++
         }
@@ -56,7 +57,7 @@ function playRound()
         {
             computerScore++
         }
-        if(humanChoice == "scissors" && computerChoice == "paper")
+        if (humanChoice == "scissors" && computerChoice == "paper")
         {
             playerScore++
         }
@@ -66,26 +67,31 @@ function playRound()
     loss.textContent = `Loss: ${computerScore}`
     draw.textContent = `Draw: ${drawScore}`
     console.log(`Players score: ${playerScore}\nComputers score: ${computerScore} `)
+    // possibly add some more text to give feedback on what the computer choose with a red green or black/ grey color if its a win loss or tie
 }
 
-play.addEventListener("click", ()=> {
+play.addEventListener("click", () =>
+{
     console.log("Play Hit") // playRound() and unhide score / buttons
-    
+
 })
 
-rockButton.addEventListener("click", ()=> {
+rockButton.addEventListener("click", () =>
+{
     humanChoice = "rock"
     playRound()
 
 })
 
-paperbutton.addEventListener("click", ()=> {
+paperbutton.addEventListener("click", () =>
+{
     humanChoice = "paper"
     playRound()
 
 })
 
-scissorsButton.addEventListener("click", ()=> {
+scissorsButton.addEventListener("click", () =>
+{
     humanChoice = "scissors"
     playRound()
 })
