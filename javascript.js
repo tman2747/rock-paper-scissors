@@ -13,7 +13,11 @@ let playerScore = 0
 let computerScore = 0
 let drawScore = 0
 let humanChoice = "whatever"
-
+let firstGame = true;
+let outcomeText = document.createElement("div")
+outcomeText.textContent = "DEBUGKEKW"
+outcomeText.style.justifyContent = "center"
+outcomeText.style.display = "flex"
 function getComputerChoice()
 {
     randomValue = Math.random()
@@ -27,60 +31,86 @@ function getComputerChoice()
 
 function playRound()
 {
-
     computerChoice = getComputerChoice()
 
     console.log(`Computer chose:${computerChoice}`)
 
+    if (firstGame)
+    {
+        container.appendChild(outcomeText)
+        firstGame = false
+    }
     if (humanChoice == computerChoice)
     {
         // add to draw
         drawScore++;
+        outcomeText.textContent = "Draw"
+        outcomeText.style.color = "grey"
+        outcomeText.style.justifyContent = "center"
+        outcomeText.style.display = "flex"
+
     }
     else
     {
         if (humanChoice == "rock" && computerChoice == "paper")
         {
             computerScore++
+            outcomeText.textContent = "You Lose"
+        outcomeText.style.color = "red"
+
         }
         if (humanChoice == "rock" && computerChoice == "scissors")
         {
             playerScore++
+            outcomeText.textContent = "You Win"
+            outcomeText.style.color = "green"
+
+
         }
         if (humanChoice == "paper" && computerChoice == "scissors")
         {
             computerScore++
+            outcomeText.textContent = "You Lose"
+            outcomeText.style.color = "red"
+
+
         }
         if (humanChoice == "paper" && computerChoice == "rock")
         {
             playerScore++
+            outcomeText.textContent = "You Win"
+            outcomeText.style.color = "green"
+
+
         }
         if (humanChoice == "scissors" && computerChoice == "rock")
         {
             computerScore++
+            outcomeText.textContent = "You Lose"
+        outcomeText.style.color = "red"
+
+
         }
         if (humanChoice == "scissors" && computerChoice == "paper")
         {
             playerScore++
+            outcomeText.textContent = "You Win"
+            outcomeText.style.color = "green"
         }
     }
-    // change win lose draw here probably
     win.textContent = `Win: ${playerScore}`
     loss.textContent = `Loss: ${computerScore}`
     draw.textContent = `Draw: ${drawScore}`
     console.log(`Players score: ${playerScore}\nComputers score: ${computerScore} `)
-    outcomeText = document.createElement("div")
-    outcomeText.textContent = "YOU WIN"
-    container.appendChild(outcomeText) // this appends a new child after every game. no really what im looking for. probably just need to append this once after a game
-    // and then edit the text conent after each win.
-
-    // possibly add some more text to give feedback on what the computer choose with a red green or black/ grey color if its a win loss or tie
-    // probably dont need to give feedback on what computer chose just do you won you lose you draw text.
 }
 
 play.addEventListener("click", () =>
 {
     console.log("Play Hit") // playRound() and unhide score / buttons
+    const scoreboard = document.querySelector(".scoreBoard")
+    const gameButtons = document.querySelector(".gameButtons")
+    scoreboard.style.display = "flex"
+    gameButtons.style.display = "flex"
 
 })
 
